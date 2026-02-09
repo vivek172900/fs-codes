@@ -1,0 +1,241 @@
+1️⃣ Single-Slot 3-Stage Pipeline
+
+You are given N tasks.
+Each task must go through exactly 3 stages in strict order:
+
+Stage-1 → Stage-2 → Stage-3
+
+Constraints
+
+Exactly 3 threads (one per stage)
+
+No buffer / queue / list
+
+Only ONE shared handoff object
+
+A task must complete Stage-1 before Stage-2 starts
+
+A task must complete Stage-2 before Stage-3 starts
+
+Tasks must be processed one at a time
+
+Sample Input
+3
+TaskA
+TaskB
+TaskC
+
+Sample Output
+STAGE1 processed TaskA
+STAGE2 processed TaskA
+STAGE3 processed TaskA
+STAGE1 processed TaskB
+STAGE2 processed TaskB
+STAGE3 processed TaskB
+STAGE1 processed TaskC
+STAGE2 processed TaskC
+STAGE3 processed TaskC
+
+2️⃣ Ordered Thread Printing (Dynamic Threads)
+
+You are given N threads and a number M.
+
+Each thread has an ID from 1 to N.
+
+Goal
+
+Print numbers from 1 to M in strict round-robin order of threads.
+
+Sample Input
+N = 3
+M = 9
+
+Sample Output
+Thread-1 prints 1
+Thread-2 prints 2
+Thread-3 prints 3
+Thread-1 prints 4
+Thread-2 prints 5
+Thread-3 prints 6
+Thread-1 prints 7
+Thread-2 prints 8
+Thread-3 prints 9
+
+3️⃣ Read → Process → Write Document System
+
+A shared Document must be handled in strict order:
+
+READ → PROCESS → WRITE
+
+Constraints
+
+One Reader thread
+
+One Processor thread
+
+One Writer thread
+
+No thread can skip a step
+
+No buffering allowed
+
+Multiple documents must be handled sequentially
+
+Sample Input
+2
+Doc1
+Doc2
+
+Sample Output
+READ Doc1
+PROCESS Doc1
+WRITE Doc1
+READ Doc2
+PROCESS Doc2
+WRITE Doc2
+
+4️⃣ Traffic Intersection Controller
+
+Four directions:
+
+NORTH, SOUTH, EAST, WEST
+
+Rules
+
+Only one direction green at a time
+
+Cars must cross in arrival order
+
+No starvation
+
+Emergency vehicles get priority
+
+Sample Input
+5
+NORTH car1
+EAST car2
+NORTH car3
+WEST ambulance
+SOUTH car4
+
+Sample Output
+NORTH car1 crossed
+EAST car2 crossed
+WEST ambulance crossed
+NORTH car3 crossed
+SOUTH car4 crossed
+
+5️⃣ Bank Transfer System (Deadlock-Safe)
+
+Multiple accounts and transfers.
+
+Rules
+
+Transfers must be atomic
+
+No deadlocks
+
+No inconsistent balances
+
+Sample Input
+Accounts:
+A 1000
+B 2000
+
+Transfers:
+A B 300
+B A 500
+
+Sample Output
+Transfer A -> B : 300 SUCCESS
+Transfer B -> A : 500 SUCCESS
+Final Balance:
+A = 1200
+B = 1800
+
+6️⃣ Thread-Safe LRU Cache
+
+Design a cache with capacity C.
+
+Rules
+
+Least recently used item is evicted
+
+Multiple threads may access cache
+
+Sample Input
+Capacity = 2
+PUT 1 10
+PUT 2 20
+GET 1
+PUT 3 30
+
+Sample Output
+GET 1 -> 10
+Evicted Key: 2
+
+7️⃣ Custom Thread Pool
+
+Implement a thread pool from scratch.
+
+Sample Input
+PoolSize = 2
+Tasks = 5
+
+Sample Output
+Worker-1 executing Task-1
+Worker-2 executing Task-2
+Worker-1 executing Task-3
+Worker-2 executing Task-4
+Worker-1 executing Task-5
+
+8️⃣ Rate Limiter (Token Bucket)
+
+Allow X requests per second.
+
+Sample Input
+Rate = 3/sec
+Requests = 6
+
+Sample Output
+Request-1 ALLOWED
+Request-2 ALLOWED
+Request-3 ALLOWED
+Request-4 REJECTED
+Request-5 REJECTED
+Request-6 REJECTED
+
+9️⃣ Barrier Synchronization File Processor
+
+Multiple threads process a file in 2 phases.
+
+Sample Input
+Threads = 3
+
+Sample Output
+Thread-1 Phase-1 done
+Thread-2 Phase-1 done
+Thread-3 Phase-1 done
+--- Barrier ---
+Thread-1 Phase-2 done
+Thread-2 Phase-2 done
+Thread-3 Phase-2 done
+
+🔟 Dining Philosophers (Advanced)
+
+Each philosopher:
+
+Eats
+
+Thinks
+
+Can change seats
+
+Sample Input
+Philosophers = 3
+
+Sample Output
+Philosopher-1 eating
+Philosopher-2 eating
+Philosopher-3 eating
+No starvation detected
